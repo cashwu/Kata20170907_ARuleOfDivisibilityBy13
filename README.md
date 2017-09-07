@@ -39,4 +39,4 @@ Call `thirt` the function which processes this sequence of operations on an inte
 
 ### 中文大意
 
-數字 rverse 之後依序乘上相對應的 divisions 之後相加，直接數字怎麼算都是同一個數字
+數字 rverse 之後依序乘上相對應的 divisions 之後相加，直到數字怎麼算都是同一個數字
