@@ -26,6 +26,24 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
             ThirteenShouldBe(87, 1234567);
         }
 
+        [TestMethod]
+        public void input_85299258_should_return_31()
+        {
+            ThirteenShouldBe(31, 85299258);
+        }
+
+        [TestMethod]
+        public void input_1111111111_should_return_71()
+        {
+            ThirteenShouldBe(71, 1111111111);
+        }
+
+        [TestMethod]
+        public void input_987654321_should_return_30()
+        {
+            ThirteenShouldBe(30, 987654321);
+        }
+
         private static void ThirteenShouldBe(int expected, int number)
         {
             var thirteen = new Thirteen();
