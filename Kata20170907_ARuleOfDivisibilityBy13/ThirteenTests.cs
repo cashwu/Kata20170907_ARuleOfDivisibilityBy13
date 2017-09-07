@@ -58,21 +58,12 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
 
         public long Thirt(long n)
         {
-            long prevNum;
-            var currentNum = n;
             do
             {
-                prevNum = currentNum;
-                currentNum = DivisionsThirtNumber(prevNum);
+                n = (long)n.ToString().Reverse().Select((a, i) => char.GetNumericValue(a) * divisionsNum[i % 6]).Sum();
+            } while (n > 99);
 
-            } while (prevNum != currentNum);
-
-            return currentNum;
-        }
-
-        private long DivisionsThirtNumber(long number)
-        {
-            return (long)number.ToString().Reverse().Select((a, i) => char.GetNumericValue(a) * divisionsNum[i % 6]).Sum();
+            return n;
         }
     }
 }
