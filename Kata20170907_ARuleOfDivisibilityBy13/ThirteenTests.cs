@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata20170907_ARuleOfDivisibilityBy13
@@ -12,6 +14,12 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
             ThirteenShouldBe(48, 321);
         }
 
+        [TestMethod]
+        public void input_5634_should_return_57()
+        {
+            ThirteenShouldBe(57, 5634);
+        }
+
         private static void ThirteenShouldBe(int expected, int number)
         {
             var thirteen = new Thirteen();
@@ -22,9 +30,20 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
 
     public class Thirteen
     {
+        private readonly int[] divisionsNum = { 1, 10, 9, 12, 3, 4 };
+
         public long Thirt(long n)
         {
-            return 48;
+            var r = DivisionsThirtNumber(n);
+
+            var r1 = DivisionsThirtNumber(r);
+
+            return r1;
+        }
+
+        private long DivisionsThirtNumber(long number)
+        {
+            return (long)number.ToString().Reverse().Select((a, i) => char.GetNumericValue(a) * divisionsNum[i]).Sum();
         }
     }
 }
