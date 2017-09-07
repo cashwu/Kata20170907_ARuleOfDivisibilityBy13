@@ -20,6 +20,12 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
             ThirteenShouldBe(57, 5634);
         }
 
+        [TestMethod]
+        public void input_1234567_should_return_87()
+        {
+            ThirteenShouldBe(87, 1234567);
+        }
+
         private static void ThirteenShouldBe(int expected, int number)
         {
             var thirteen = new Thirteen();
@@ -34,16 +40,21 @@ namespace Kata20170907_ARuleOfDivisibilityBy13
 
         public long Thirt(long n)
         {
-            var r = DivisionsThirtNumber(n);
+            long prevNum;
+            var currentNum = n;
+            do
+            {
+                prevNum = currentNum;
+                currentNum = DivisionsThirtNumber(prevNum);
 
-            var r1 = DivisionsThirtNumber(r);
+            } while (prevNum != currentNum);
 
-            return r1;
+            return currentNum;
         }
 
         private long DivisionsThirtNumber(long number)
         {
-            return (long)number.ToString().Reverse().Select((a, i) => char.GetNumericValue(a) * divisionsNum[i]).Sum();
+            return (long)number.ToString().Reverse().Select((a, i) => char.GetNumericValue(a) * divisionsNum[i % 6]).Sum();
         }
     }
 }
