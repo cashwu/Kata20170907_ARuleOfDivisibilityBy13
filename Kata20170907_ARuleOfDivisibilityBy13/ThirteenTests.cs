@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kata20170907_ARuleOfDivisibilityBy13
 {
     [TestClass]
-    public class UnitTest1
+    public class ThirteenTests
     {
         [TestMethod]
         public void TestMethod1()
